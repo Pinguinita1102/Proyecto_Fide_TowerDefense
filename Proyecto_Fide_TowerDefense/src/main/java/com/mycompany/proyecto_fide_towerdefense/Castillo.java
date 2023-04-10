@@ -1,31 +1,36 @@
-
 package com.mycompany.proyecto_fide_towerdefense;
-
-/**
- *
- * @author valem
- */
 public class Castillo {
-    private int vida;
-    
+    private String jugador;
+    private double vida;
 
-    public Castillo(int vida) {
-        this.vida = 100;
-    }
-    
-    public void unaBaja(int cantidad){
-        vida -= cantidad;
+    public Castillo(String jugador, double vida) {
+        this.jugador = jugador;
+        this.vida = vida;
     }
 
-    public int getVida() {
+    public String getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(String jugador) {
+        this.jugador = jugador;
+    }
+
+    public double getVida() {
         return vida;
     }
 
-    public void setVida(int vida) {
+    public void setVida(double vida) {
         this.vida = vida;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        
+        return "^-^-^-^-^-^-^  \n"
+                + "|    "+vida+"     |\n"
+                + "|   Vida    |\n"
+                + "|   "+jugador+"    |\n"
+                + "-------------\n";
+    }
 }
