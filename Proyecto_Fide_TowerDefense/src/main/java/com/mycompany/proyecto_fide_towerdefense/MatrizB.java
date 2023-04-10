@@ -1,13 +1,10 @@
-
 package com.mycompany.proyecto_fide_towerdefense;
 
-/**
- *
- * @author valem
- */
 public class MatrizB {
-    private boolean ocupado;//Esta variable es para ver si una celda del camino se encuentra ocupada por eso esta en booleano
-    private int jugador;//Esto es para saber a quien pertenece la tropa en ese caso si es del jugador 1 entonces se pone un 1 y si es del jugador 2 un 2
+    private boolean ocupado;//Esta variable es para ver si una celda del camino se encuentra ocupada por eso esta en 
+    //booleano
+    private int jugador;//Esto es para saber a quien pertenece la tropa en ese caso si es del jugador 1 entonces se 
+    //pone un 1 y si es del jugador 2 un 2
     //Y si esta vacia un 0
     
     public MatrizB() {
