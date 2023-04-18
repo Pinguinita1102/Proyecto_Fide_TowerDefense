@@ -24,13 +24,14 @@ public class Castillo {
         this.vida = vida;
     }
 
+    
     @Override
     public String toString() {
         
-        return "^-^-^-^-^-^-^  \n"
+        return "\n^-^-^-^-^-^-^  \n"
                 + "|    "+vida+"     |\n"
                 + "|   Vida    |\n"
                 + "|   "+jugador+"    |\n"
-                + "-------------\n";
+                + "-------------";
     }
 }

@@ -13,6 +13,17 @@ public class Tropa {
         this.camino = camino; //El camino que elija el jugador
     }
 
+    public Tropa(String nombre, String jugador) {
+        this.nombre = nombre;
+        this.jugador = jugador;
+    }
+
+    public Tropa(String jugador) {
+        this.jugador = jugador;
+    }
+    
+    
+
     /*/public void moverT(Camino camino) {
         // mover la tropa por el camino, por medio del objeto camino se mueve a estos datos por la matriz (Camino)
     }/*/
