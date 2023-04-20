@@ -3,6 +3,13 @@ public class Celda {
     private String nombre;//tropa
     private String jugador;
 
+    public Celda(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Celda() {
+    }
+    
     public Celda(String nombre, String jugador) {
         this.nombre = nombre;
         this.jugador = jugador;

@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Juego {  
     Random random = new Random();
     int oleada;    
-    
     Cola colaP1 = new Cola();
     Cola colaCPU = new Cola();
-    Castillo castilloP1 = new Castillo("P1",10);
-    Castillo castilloCPU = new Castillo("CPU",10);
+
+    Camino camino = new Camino();
+    Celda celda = new Celda();
     
-    private Celda[][] camino;
+    
     
     public void inicio(){
         System.out.println("Reglas del Juego: \n"
@@ -30,7 +30,7 @@ public class Juego {
                 + "\t >> El juego termina cuando alguno de los castillos es destruido completamente.\n\n");
         oleada = 1;
         selecciónDeTropas();
-        //combate();
+        combate();
     }
         
     public void selecciónDeTropas(){
@@ -216,51 +216,141 @@ public class Juego {
             return ca;
     }/*/
         
-    public void combate(){
-        camino = new Celda [1][8];
+    public void combate() {
+        
+        
         int cP1 = colaP1.atiende().getDato().getCamino();
         int cCPU = colaCPU.atiende().getDato().getCamino();
-        
-        //Se coloca en el tablero la primer tropa del Jugador
-        if (cP1 == 0){
-            camino [0][0].setNombre(colaP1.atiende().getDato().getNombre());
-            camino [0][0].setJugador(colaP1.atiende().getDato().getJugador());
-        }
-        else if(cP1 ==1){
-            camino [1][0].setNombre(colaP1.atiende().getDato().getNombre());
-            camino [1][0].setJugador(colaP1.atiende().getDato().getJugador());
-        }
-        else {
+
+        //Esta ser'ia la fila en la que inicia
+        if (cP1 == 0) {
+            if ("Mago".equals(colaP1.atiende().getDato().getNombre())) {
+                String nombre = "P1/M";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 0, nombre);
+            }
+            else if ("Caballero".equals(colaP1.atiende().getDato().getNombre())) {
+                String nombre = "P1/C";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 1, nombre);
+            }
+            else{
+                String nombre = "P1/A";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 2, nombre);
+            }
+            //String nombre = colaP1.atiende().getDato().getNombre();
+            //Tropa nuevaCelda = new Tropa(nombre);
+            //camino.enviarDato(0, 0, nuevaCelda);
+            //String jugador = colaP1.atiende().getDato().getJugador();
+            //nuevaCelda = new Tropa(jugador);
+            //camino.enviarDato(0, 0, nuevaCelda);
+            //camino[0][0].setNombre(colaP1.atiende().getDato().getNombre());
+            //camino[0][0].setJugador(colaP1.atiende().getDato().getJugador());
+            
+        } else if (cP1 == 1) {
+            if ("Mago".equals(colaP1.atiende().getDato().getNombre())) {
+                String nombre = "P1/M";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 0, nombre);
+            }
+            else if ("Caballero".equals(colaP1.atiende().getDato().getNombre())) {
+                String nombre = "P1/C";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 1, nombre);
+            }
+            else{
+                String nombre = "P1/A";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 2, nombre);
+            }
+            //String nombre = colaP1.atiende().getDato().getNombre();
+            //Tropa nuevaCelda = new Tropa(nombre);
+            //camino.enviarDato(1, 0, nuevaCelda);
+            //String jugador = colaP1.atiende().getDato().getJugador();
+            //nuevaCelda = new Tropa(jugador);
+            //camino.enviarDato(1, 0, nuevaCelda);
+            //camino[1][0].setNombre(colaP1.atiende().getDato().getNombre());
+            //camino[1][0].setJugador(colaP1.atiende().getDato().getJugador());
+        } else {
             System.out.println("No se detecta camino asignado");
         }
-        System.out.print(castilloP1);
-        for(int x = 0; x < camino.length; x++){
-            for(int y = 0; y < camino[x].length; y++) {
+        //System.out.print(castilloP1);
+        camino.imprimir();
+        //System.out.print(castilloCPU);
+        System.out.println();
+        /*for (int x = 0; x < camino.length; x++) {
+            for (int y = 0; y < camino[x].length; y++) {
                 System.out.print(camino[x][y]);
             }
             System.out.print(castilloCPU);
             System.out.println();
-        }
-        
-        //Se coloca en el tablero la primer tropa del CPU.
-        if (cCPU == 1){
-            camino [0][8].setNombre(colaP1.atiende().getDato().getNombre());
-            camino [0][8].setJugador(colaP1.atiende().getDato().getJugador());
-        }
-        else if(cCPU ==2){
-            camino [1][8].setNombre(colaP1.atiende().getDato().getNombre());
-            camino [1][8].setJugador(colaP1.atiende().getDato().getJugador());
-        }
-        else {
+        }*/
+
+        if (cCPU == 1) {
+            if ("Mago".equals(colaCPU.atiende().getDato().getNombre())) {
+                String nombre = "CPU/M";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 7, nombre);
+            }
+            else if ("Caballero".equals(colaCPU.atiende().getDato().getNombre())) {
+                String nombre = "CPU/C";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 6, nombre);
+            }
+            else{
+                String nombre = "CPU/A";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(0, 5, nombre);
+            }
+            //String nombre = colaCPU.atiende().getDato().getNombre();
+            //Tropa nuevaCelda = new Tropa(nombre);
+            //camino.enviarDato(0, 8, nuevaCelda);
+            //String jugador = colaCPU.atiende().getDato().getJugador();
+            //nuevaCelda = new Tropa(jugador);
+            //camino.enviarDato(0, 8, nuevaCelda);
+            //camino[0][8].setNombre(colaCPU.atiende().getDato().getNombre());
+            //camino[0][8].setJugador(colaCPU.atiende().getDato().getJugador());
+            
+        } else if (cCPU == 2) {
+            if ("Mago".equals(colaCPU.atiende().getDato().getNombre())) {
+                String nombre = "CPU/M";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 7, nombre);
+            }
+            else if ("Caballero".equals(colaCPU.atiende().getDato().getNombre())) {
+                String nombre = "CPU/C";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 6, nombre);
+            }
+            else{//Arquero
+                String nombre = "CPU/A";
+                //Celda nuevaCelda = new Celda(nombre);
+                camino.enviarDato(1, 5, nombre);
+            }
+            //String nombre = colaCPU.atiende().getDato().getNombre();
+            //Tropa nuevaCelda = new Tropa(nombre);
+            //camino.enviarDato(0, 8, nuevaCelda);
+            //String jugador = colaCPU.atiende().getDato().getJugador();
+            //nuevaCelda = new Tropa(jugador);
+            //camino.enviarDato(0, 8, nuevaCelda);
+            //camino[1][8].setNombre(colaCPU.atiende().getDato().getNombre());
+            //camino[1][8].setJugador(colaCPU.atiende().getDato().getJugador());
+        } else {
             System.out.println("No se detecta camino asignado");
         }
-        System.out.print(castilloP1);
-        for(int x = 0; x < camino.length; x++){
-            for(int y = 0; y < camino[x].length; y++) {
+        //System.out.print(castilloP1);
+        camino.imprimir();
+        //System.out.print(castilloCPU);
+        System.out.println();
+        
+        /*for (int x = 0; x < camino.length; x++) {
+            for (int y = 0; y < camino[x].length; y++) {
                 System.out.print(camino[x][y]);
             }
             System.out.print(castilloCPU);
             System.out.println();
-        }
+        }*/
     }
+
 }
