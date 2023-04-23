@@ -22,6 +22,9 @@ public class Tropa {
         this.jugador = jugador;
     }
     
+    public Tropa(){
+    }
+    
     
 
     /*/public void moverT(Camino camino) {
