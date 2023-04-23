@@ -1,16 +1,17 @@
 package com.mycompany.proyecto_fide_towerdefense;
-public class Cola {
+public class Cola {//Atributos de la cola
     private NodoC frente;
     private NodoC ultimo;
     private int largo;
 
-    public Cola() {
+    public Cola() { //Constructor
         this.frente = null;
         this.ultimo = null;
         this.largo = 0;
     }
     
-    public void encola(NodoC nuevoNodoC) {
+    //Métodos
+    public void encola(NodoC nuevoNodoC) { //Agrega los nodos a la cola
         if(frente == null) { //Significa que la cola está vacía
             frente = nuevoNodoC;
             ultimo = nuevoNodoC;
@@ -22,7 +23,7 @@ public class Cola {
         largo++;
     }
     
-    public NodoC atiende(){
+    public NodoC atiende(){ //Va revisando los nodos de la cola y los elimina de ella
         NodoC aux = frente;
         if(frente != null) {
             frente=frente.getAtras();
@@ -33,7 +34,7 @@ public class Cola {
     }
     
     
-    public String imprimir(){
+    public String imprimir(){ //Método para imprimir la cola
         String s = "";
         NodoC aux = frente;
         while(aux != null) {
