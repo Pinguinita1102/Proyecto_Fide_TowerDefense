@@ -29,9 +29,9 @@ public class Castillo {
     public String toString() {
         
         return "\n^-^-^-^-^-^-^  \n"
-                + "|    "+vida+"     |\n"
+                + "|   "+vida+"    |\n"
                 + "|   Vida    |\n"
-                + "|   "+jugador+"    |\n"
+                + "|   " +jugador+"      |\n"
                 + "-------------";
     }
 }
